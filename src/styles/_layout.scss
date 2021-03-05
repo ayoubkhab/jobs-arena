@@ -1,0 +1,208 @@
+.container {
+	// display: grid;
+	// grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) 
+	// 											 [center-end] minmax(6rem, 1fr) [full-end];
+	// grid-template-rows: min-content min-content;
+
+}
+
+.topbar {
+	background-color: $color-secondary;
+	padding: 0rem 2rem;
+
+	display: flex;
+	align-items: center;
+	color: #fff;
+
+	&__logo {
+		grid-column: center-start / center-end;
+		margin-right: auto;
+		padding: 1rem 0;
+		font-size: 2.5rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: color .2s;
+
+		@media only screen and (max-width: $bp-smallest) {
+			font-size: 2.2rem;
+		}
+
+
+		& span {
+			color: lighten($color-tertiary, 20%);
+			transition: color .2s;
+		}
+
+		&:hover, & span:hover {
+			color: #fff;
+		}
+
+	}
+
+	h6 {
+		font-size: 1.5rem;
+		padding: 1rem 0 1rem 2rem;
+		cursor: pointer;
+		transition: color .2s;
+
+		@media only screen and (max-width: $bp-smallest) {
+			padding: 1rem 0 1rem .5rem ;
+			font-size: 1.3rem;
+		}
+
+		&:hover {
+			color: lighten($color-tertiary, 20%);
+		}
+
+	}
+
+
+	&__menu--icon {
+		position: relative;
+		width: 3.5rem;
+		height: 3.5rem;
+		margin-left: 2rem;
+		border-radius: 50%;
+		cursor: pointer;
+		display: none;
+
+		@media only screen and (max-width: $bp-small) {
+			display: block;
+		}
+
+		@media only screen and (max-width: $bp-smallest) {
+			margin-left: .5rem;
+		}
+	}
+
+	&__menu {
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 2.4rem;
+		height: .3rem;
+		background-color: #fff;
+		transition: .5s;
+
+		&::before, &::after {
+			content: '';
+			position: relative;
+			width: 2.4rem;
+			height: .3rem;
+			background-color: #fff;
+			display: block;
+			transition: .5s;
+		
+		}
+
+		&::before {
+			top: .7rem;
+		}
+
+		&::after {
+			top: -1rem;
+		}
+	}
+
+	&__menu--active {
+		position: relative;
+		width: 2.4rem;
+		height: .3rem;
+		background-color: #fff;
+		background-color: rgba(0,0,0,0);
+		transition: .5s;
+
+		&::before, &::after {
+			content: '';
+			position: relative;
+			width: 2.4rem;
+			height: .3rem;
+			background-color: #fff;
+			display: block;
+		}
+
+		&::before {
+			transform: translateY(-.7rem) rotate(135deg);
+		}
+
+		&::after {
+			transform: translateY(.7rem) rotate(225deg);
+
+		}
+	}
+
+}
+
+.navbar {
+	background-color: $color-primary;
+	transition: .2s;
+	box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15), 0 .2rem .4rem rgba(0,0,0,0.12);
+
+
+	&--hidden {
+		
+		@media only screen and (max-width: $bp-small) {
+			display: none;
+		}
+
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+
+		@media only screen and (max-width: $bp-small) {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		li {
+			padding: 1rem 2rem;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			cursor: pointer;
+			transition: background-color .2s;
+
+			&:hover {
+				background-color: lighten($color-primary, 3%);
+			}
+
+			a {
+				color: #fff;
+			}
+		}
+	}
+	
+}
+
+.main {
+	display: grid;
+	grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(6, [col-start] minmax(min-content, 14rem) [col-end]) 
+												 [center-end] minmax(6rem, 1fr) [full-end];
+	grid-template-rows: min-content min-content;
+
+	grid-gap: 1.5rem;
+
+}
+
+.main-job-page {
+	display: grid;
+	grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(6, [col-start] minmax(min-content, 20rem) [col-end]) 
+												 [center-end] minmax(6rem, 1fr) [full-end];
+	grid-template-rows: min-content min-content;
+
+	grid-gap: 1.5rem;
+}
+
+
+.footer {
+	display: grid;
+	grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(6, [col-start] minmax(min-content, 14rem) [col-end]) 
+												 [center-end] minmax(6rem, 1fr) [full-end];
+	grid-template-rows: min-content min-content;
+
+	grid-gap: 1.5rem;
+
+}
