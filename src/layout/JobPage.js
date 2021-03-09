@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
-import GoogleLogo from '../styles/google-logo.png';
 import {useParams} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getJob} from '../redux';
+import moment from 'moment';
 import JobPageSkeleton from '../components/JobPageSkeleton';
+import DOMPurify from 'dompurify';
 
 
 const JobPage = (props) => {
@@ -22,34 +23,31 @@ const JobPage = (props) => {
  		)
 	}
 	if (!props.loadingUI && props.job !== null) {
+		const { title, company, location, description, company_logo, company_url, how_to_apply, created_at } = props.job;
+		console.log('from JobPage: ', props.job)
 		return (
 			<div className="main-job-page">
 				<div className="main-job-page-description">
-					<h3>{props.job.title}</h3>
-					<h6>Google Inc.</h6>
-					<h6>San Francesco, US</h6>
-					<p className="job-description">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur leo pellentesque aliquet ultricies. Nulla eleifend lorem condimentum tristique mattis. Aliquam scelerisque non odio eu ultrices. In vitae nisi efficitur, rhoncus sapien scelerisque, pulvinar leo. Sed vestibulum scelerisque leo vitae rutrum. Nullam tortor risus, lacinia non neque ac, volutpat vulputate eros. Sed fringilla vel eros eu elementum. Fusce sollicitudin fermentum purus, iaculis pharetra diam feugiat sed. Maecenas ac suscipit metus, a accumsan velit. Vestibulum non tristique purus, ac fermentum sem. Curabitur sit amet aliquam leo, sed venenatis odio.
-
-	Quisque pretium, velit sed faucibus dignissim, felis orci suscipit lacus, a convallis est sapien tristique ligula. In eget libero pulvinar, tincidunt ipsum et, laoreet est. In est elit, dapibus ut tempor eget, elementum eget mauris. Pellentesque id pharetra odio. Etiam enim risus, euismod a bibendum in, interdum in dolor. Sed non est id velit mattis commodo in fringilla turpis. Etiam sed massa sit amet nulla tristique maximus at id mi. Sed pharetra quis lacus id imperdiet. Donec porta sed sapien at lacinia.
-					</p>
+					<h3>{title}</h3>
+					<h6>{company}</h6>
+					<h6>{location}</h6>
+					<span>{`Posted ${moment(created_at).fromNow()}`}</span>
+					<p className="job-description" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}></p>
 				</div>
 				<div className="main-job-page-company">
-					<a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
-						<img src={GoogleLogo} alt=""/>
+					<a href={company_url} target="_blank" rel="noopener noreferrer">
+						<img src={company_logo} alt=""/>
 					</a>
 					<h6>
-						Google Inc.
+						{company}
 					</h6>
-					<h6><a href="#outgoing-link">www.google.com</a></h6>
+					<h6><a href={company_url} target="_blank" rel="noopener noreferrer">{company_url}</a></h6>
 				</div>
 				<div className="main-job-page-how-to-apply">
 					<h4>
 						How to apply
 					</h4>
-					<p className="how-to-apply">
-						visit this link for further infos
-					</p>
+					<p className="how-to-apply" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(how_to_apply) }}></p>
 				</div>
 			</div>
 		);

@@ -1,11 +1,3 @@
-.container {
-	// display: grid;
-	// grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) 
-	// 											 [center-end] minmax(6rem, 1fr) [full-end];
-	// grid-template-rows: min-content min-content;
-
-}
-
 .topbar {
 	background-color: $color-secondary;
 	padding: 0rem 2rem;
@@ -137,7 +129,7 @@
 .navbar {
 	background-color: $color-primary;
 	transition: .2s;
-	box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15), 0 .2rem .4rem rgba(0,0,0,0.12);
+	box-shadow: $shadow;
 
 
 	&--hidden {
@@ -184,6 +176,15 @@
 	grid-template-rows: min-content min-content;
 
 	grid-gap: 1.5rem;
+	min-height: calc(100vh - 15.9rem);
+
+	@media only screen and (max-width: $bp-small) {
+		min-height: calc(100vh - 11.5rem);
+	}
+
+	@media only screen and (max-width: $bp-smallest) {
+		min-height: calc(100vh - 9.92rem);
+	}
 
 }
 
@@ -194,6 +195,7 @@
 	grid-template-rows: min-content min-content;
 
 	grid-gap: 1.5rem;
+	min-height: calc(100vh - 15.9rem);
 }
 
 
@@ -204,5 +206,8 @@
 	grid-template-rows: min-content min-content;
 
 	grid-gap: 1.5rem;
+	background-color: $color-secondary;
+	padding: 2rem;
+
 
 }

@@ -23,7 +23,7 @@
 	padding: 2rem;
 	margin-top: 1rem;
 	border-radius: .3rem;
-	box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15), 0 .2rem .4rem rgba(0,0,0,0.12);
+	box-shadow: $shadow;
 
 	@media only screen and (max-width: $bp-large) {
 		grid-column: full-start / full-end;
@@ -132,6 +132,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		margin-bottom: 1.5rem;
 		& .button:first-child {
 			margin-right: 1rem;
 
@@ -145,7 +146,7 @@
 	padding: 1.5rem;
 	border-radius: .3rem;
 	background-color: #f9f9f9;
-	box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15), 0 .2rem .4rem rgba(0,0,0,0.12);
+	box-shadow: $shadow;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -182,7 +183,7 @@
 		border: none;
 		cursor: pointer;
 		background-color: #f9f9f9;
-		box-shadow: 0 .2rem .4rem rgba(0,0,0,0.15), 0 .1rem .2rem rgba(0,0,0,0.12);
+		box-shadow: $shadow-short;
 		transition: all .2s ease-in;
 
 		@media only screen and (max-width: $bp-medium) {
@@ -231,7 +232,7 @@
 	margin-bottom: 1.5rem;
 	padding: 2rem;
 	background-color: #f9f9f9;
-	box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15), 0 .2rem .4rem rgba(0,0,0,0.12);
+	box-shadow: $shadow;
 	cursor: pointer;
 	transition: all .2s;
 
@@ -245,7 +246,7 @@
 		margin-bottom: 1rem;
 	
 		& .button {
-		
+		 margin-left: .5rem;
 		}
 	}
 
@@ -253,7 +254,7 @@
 		flex: 1;
 
 		p {
-			color: #919191;
+			color: $color-light-grey;
 			margin-top: -.5rem;
 			font-weight: 500;
 			font-size: 1.2rem;
@@ -265,6 +266,7 @@
 
 		& p {
 			font-size: 1.2rem;
+			color: $color-primary;
 
 			&:not(:last-child) {
 				margin-right: 3rem;
@@ -355,11 +357,22 @@
 	padding: 1.5rem;
 	&-description {
 		grid-column: center-start / col-end 4;
-		grid-row: 1 / -1;
+		grid-row: 1 / 8;
 		border-radius: .3rem;
 		padding: 2rem;
 		background-color: #f9f9f9;
-		box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15), 0 .2rem .4rem rgba(0,0,0,0.12);
+		box-shadow: $shadow;
+
+		& span {
+			color: $color-primary;
+			font-size: 1.3rem;
+			font-weight: 400;
+		}
+
+		& h6 {
+			font-size: 1.6rem;
+			margin-top: -.3rem
+		}
 
 		@media only screen and (max-width: $bp-largest) {
 			grid-column: full-start / col-end 4
@@ -376,6 +389,17 @@
 		& .job-description {
 			font-size: 1.6rem;
 			margin-top: 1rem;
+			padding: 1rem;
+			word-wrap: break-word;
+
+			& h2 {
+				font-size: 2rem;
+				font-weight: 500;
+			}
+
+			& ul {
+				margin-left: 1.6rem;
+			}
 		}
 
 	&-company {
@@ -387,7 +411,7 @@
 		border-radius: .3rem;
 		padding: 2rem;
 		background-color: #f9f9f9;
-		box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15), 0 .2rem .4rem rgba(0,0,0,0.12);
+		box-shadow: $shadow;
 
 		@media only screen and (max-width: $bp-largest) {
 			grid-column: col-start 5 / full-end;
@@ -444,7 +468,7 @@
 
 		padding: 2rem;
 		background-color: #f9f9f9;
-		box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15), 0 .2rem .4rem rgba(0,0,0,0.12);
+		box-shadow: $shadow;
 
 		@media only screen and (max-width: $bp-largest) {
 			grid-column: col-start 5 / full-end;
@@ -460,6 +484,11 @@
 
 .how-to-apply {
 	font-size: 1.6rem;
+
+	& p {
+		color: $color-primary;
+		word-wrap: break-word;
+	}
 
 }
 
@@ -496,7 +525,7 @@
 	width: 40rem;
 	margin: 1.5rem 0;
 	border-radius: .3rem;
-	box-shadow: 0 .2rem .4rem rgba(0,0,0,0.15), 0 .1rem .2rem rgba(0,0,0,0.12);
+	box-shadow: $shadow-short;
 
 	@media only screen and (max-width: $bp-small) {
 		width: 25rem;

@@ -1,8 +1,13 @@
 //colors
 $color-grey: darkgrey;
+$color-light-grey: #919191;
 $color-primary: #204051;
 $color-secondary: #3b6978;
 $color-tertiary: #84a9ac;
+
+// Shadow
+$shadow: 0 .3rem .6rem rgba(0,0,0,0.15), 0 .2rem .4rem rgba(0,0,0,0.12);
+$shadow-short: 0 .2rem .4rem rgba(0,0,0,0.15), 0 .1rem .2rem rgba(0,0,0,0.12);
 
 //fonts
 $font-primary: 'Roboto', sans-serif;
@@ -54,6 +59,10 @@ nav ul {
 a {
 	text-decoration: none;
 	color: currentColor;
+
+	&:-webkit-any-link {
+		color: currentColor;
+	}
 
 	&::active,
 	&::visited {

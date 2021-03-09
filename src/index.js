@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Topbar from './layout/Topbar';
 import Main from './layout/Main';
 import JobPage from './layout/JobPage';
+import Footer from './layout/Footer';
 
 
 
@@ -24,6 +25,7 @@ const App = () => {
 						<JobPage />	
 					</Route>
 				</Switch>
+				<Footer />
 			</Router>
 		</Fragment>
 	);
